@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import {  useState } from "react";
 import { fetchSearch } from "./pixabay-api";
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";

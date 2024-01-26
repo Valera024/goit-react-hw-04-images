@@ -62,18 +62,19 @@ const App = () => {
 
 
   const onClickMore = async () => {
-    await setPage((prevPage) => prevPage + 1);
     try {
-      await fetchData();
+      const newPage = page + 1;
+        await setPage(newPage);
+        await fetchData(newPage);
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 };
 
 
-  const fetchData = async () => {
+  const fetchData = async (currentPage) => {
     try {
-      const response = await fetchSearch(page, perPage, filter);
+      const response = await fetchSearch(currentPage, perPage, filter);
       setImages((prevImages) => {
         if (prevImages.length > 0) {
           return [...prevImages, ...response.data.hits]

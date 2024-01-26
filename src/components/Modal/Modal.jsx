@@ -2,21 +2,21 @@ import { useEffect } from "react"
 import styles from "./modal.module.css"
 
 const Modal = ({ onClose, image, isModalOpen }) => {
-    const closeKey = (event) => {
-        if (event.code === "Escape") {
-            onClose()
-        }
-    }
-
     useEffect(() => {
-        window.addEventListener("keydown", closeKey)
-        document.documentElement.style.overflow = 'hidden';
+    const closeKey = (event) => {
+      if (event.code === "Escape") {
+        onClose();
+      }
+    };
 
-        return () => {
-            window.removeEventListener("keydown", closeKey)
-            document.documentElement.style.overflowY = "auto"
-        }
-    }, [closeKey])
+    window.addEventListener("keydown", closeKey);
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener("keydown", closeKey);
+      document.documentElement.style.overflowY = "auto";
+    };
+  }, [onClose]);
 
     const handleClickOutside = (event) => {
         const overlay = document.querySelector(`.${styles.modal}`)

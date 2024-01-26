@@ -16,7 +16,7 @@ const Modal = ({ onClose, image, isModalOpen }) => {
             window.removeEventListener("keydown", closeKey)
             document.documentElement.style.overflowY = "auto"
         }
-    }, [closeKey])
+    })
 
     const handleClickOutside = (event) => {
         const overlay = document.querySelector(`.${styles.modal}`)

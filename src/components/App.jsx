@@ -10,7 +10,7 @@ const App = () => {
 
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(12);
+  const perPage = 12
   const [filter, setFilter] = useState(''); 
   const [selectImage, setSelectImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
